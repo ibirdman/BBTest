@@ -92,6 +92,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onButton2Click(View v) {
+        Intent intent = new Intent();
+        intent.setClassName("com.gwas.bbtestapp", "com.gwas.screenrecord.ScreenRecordActivity");
+        startActivity(intent);
+
+
 /*        try {
             if (mService != null){
                 mService.unregister(mCallbackStub);
