@@ -2,6 +2,7 @@ package com.gwas.bbtestapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -114,25 +115,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onButton3Click(View v) {
-        File sdDir = Environment.getExternalStorageDirectory();
-        String packageName = "com.tencent.mm";
-        Intent intent = new Intent();
-        intent.setAction("com.konka.ACTION.SILENT_UNINSTALL");
-        intent.setClassName("com.android.packageinstaller", "com.android.packageinstaller.SilentUninstallReceiver");
-        intent.putExtra("packagename", packageName);
-        intent.putExtra("NEED_HINT_INSTALL_RESULT", true);
-        sendBroadcast(intent);
+        AlertDialog.Builder b = new AlertDialog.Builder(MainActivity.this); //2.设置属性
+        b.setTitle("提示");
+        b.setMessage("Have you seen it?");
+        b.setNegativeButton("确定", null);
+        b.setPositiveButton("取消", null);
+        b.create();
+        b.show();
     }
 
     public void onButton4Click(View v) {
-        File sdDir = Environment.getExternalStorageDirectory();
-        String packageName = "com.gwas.tvcamera";
-        Intent intent = new Intent();
-        intent.setAction("com.konka.ACTION.SILENT_UNINSTALL");
-        intent.setClassName("com.android.packageinstaller", "com.android.packageinstaller.SilentUninstallReceiver");
-        intent.putExtra("packagename", packageName);
-        intent.putExtra("NEED_HINT_INSTALL_RESULT", true);
-        sendBroadcast(intent);
+
     }
 
     @Override
